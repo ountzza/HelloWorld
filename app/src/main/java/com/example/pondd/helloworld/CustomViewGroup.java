@@ -22,12 +22,14 @@ public class CustomViewGroup extends FrameLayout {
         super(context, attrs);
         initInflate();
         initInstances();
+        initWithAttrs(attrs);
     }
 
     public CustomViewGroup(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initInflate();
         initInstances();
+        initWithAttrs(attrs);
     }
 
     private void initInflate(){
@@ -38,6 +40,10 @@ public class CustomViewGroup extends FrameLayout {
     private void initInstances(){
         txtName = (TextView) findViewById(R.id.txtView);
     }
+    private void initWithAttrs(AttributeSet attrs){
+
+    }
+
     public void setTxtName(String text){
         txtName.setText(text);
     }
