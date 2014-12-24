@@ -5,103 +5,157 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-        <EditText
-            android:id="@+id/editText1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:inputType="numberSigned"
-            android:textSize="16sp"
-            android:text="0"/>
-
-        <EditText
-            android:id="@+id/editText2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:inputType="numberSigned"
-            android:textSize="16sp"
-            android:text="0"/>
-        <TextView
-            android:id="@+id/textEqualSign"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textSize="16sp"
-            android:text="="/>
-        <TextView
-            android:id="@+id/textResult"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textSize="16sp"
-            android:text="0"/>
-    </LinearLayout>
-
-    <RadioGroup
-        android:id="@+id/rgGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:checkedButton="@+id/rbPlus">
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:text="+"
-            android:id="@id/rbPlus"
-            />
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:text="-"
-            android:id="@+id/rbMinus"/>
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:text="*"
-            android:id="@+id/rbMultiply"/>
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:text="/"
-            android:id="@+id/rbDivide"/>
-    </RadioGroup>
-    <Button
-        android:id="@+id/firstButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <ImageView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/ic_launcher"
-            android:scaleType="fitCenter"
-            android:adjustViewBounds="true"
-            android:layout_weight="1"/>
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/ic_launcher"
-            android:scaleType="fitCenter"
-            android:adjustViewBounds="true"
-            android:layout_weight="1"/>
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/editText1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="numberSigned"
+                    android:text="0"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/editText2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="numberSigned"
+                    android:text="0"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textEqualSign"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="="
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textResult"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="0"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <RadioGroup
+                android:id="@+id/rgGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkedButton="@+id/rbPlus"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@id/rbPlus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:text="+" />
+
+                <RadioButton
+                    android:id="@+id/rbMinus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:text="-" />
+
+                <RadioButton
+                    android:id="@+id/rbMultiply"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:text="*" />
+
+                <RadioButton
+                    android:id="@+id/rbDivide"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:text="/" />
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/firstButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/btn_default_selected"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_launcher" />
+
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/btn_default_selected"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_launcher" />
+
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/btn_default_selected"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_launcher" />
+
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/btn_default_selected"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_launcher" />
+
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/btn_default_selected"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_launcher" />
+
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/btn_default_selected"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_launcher" />
+            </LinearLayout>
         </LinearLayout>
-
+    </ScrollView>
 
 </LinearLayout>
 
