@@ -73,6 +73,9 @@ public class MainActivity extends ActionBarActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode==12345){
             // resultCode
+            if(resultCode==RESULT_OK){
+                String text = data.getStringExtra("text");
+            }
         }
     }
 

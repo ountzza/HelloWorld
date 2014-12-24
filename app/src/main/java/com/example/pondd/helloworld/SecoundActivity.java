@@ -26,7 +26,9 @@ public class SecoundActivity extends ActionBarActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setResult(RESULT_OK);
+                Intent intent = new Intent();
+                intent.putExtra("text","Heeeelllooo");
+                setResult(RESULT_OK,intent);
                 finish();
             }
         });
