@@ -6,13 +6,18 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 
 /**
  * Created by Pondd on 12/24/14 AD.
  */
 public class CustomView extends View {
-boolean isBlue;
+    private boolean isBlue;
+    private boolean isDown;
+    private GestureDetector mGestureDetector;
+
     public CustomView(Context context) {
         super(context);
         init();
@@ -31,6 +36,56 @@ boolean isBlue;
     }
     private void init(){
         setWillNotDraw(false);
+
+        mGestureDetector = new GestureDetector(getContext(),new GestureDetector.OnGestureListener() {
+            @Override
+            public boolean onDown(MotionEvent e) {
+                return true;
+            }
+
+            @Override
+            public void onShowPress(MotionEvent e) {
+                isDown = true;
+                invalidate();
+            }
+
+            @Override
+            public boolean onSingleTapUp(MotionEvent e) {
+                return false;
+            }
+
+            @Override
+            public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+                return false;
+            }
+
+            @Override
+            public void onLongPress(MotionEvent e) {
+
+            }
+
+            @Override
+            public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+                isBlue = !isBlue;
+                invalidate();
+                return true;
+            }
+        });
+        // Detect Click
+        setClickable(true);
+        setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        // Detect LingClick
+        setOnLongClickListener(new OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                return false;
+            }
+        });
     }
     private void initWithAttrs(AttributeSet attrs){
         TypedArray a = getContext().getTheme().obtainStyledAttributes(
@@ -52,6 +107,34 @@ boolean isBlue;
         else
             p.setColor(0xffff0000);
 
-        canvas.drawLine(0 ,0 ,getMeasuredWidth(),getMeasuredHeight(),p);
+        if(isDown){
+            p.setStrokeWidth(3);
+            p.setColor(0xffff9900);
+            canvas.drawLine(0 ,0 ,getMeasuredWidth(),getMeasuredHeight(),p);
+        }
+        canvas.drawLine(0 ,getMeasuredHeight(),getMeasuredWidth(),0,p);
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        if(mGestureDetector.onTouchEvent(event))
+            return true;
+//        switch (event.getAction()){
+//            case MotionEvent.ACTION_DOWN:
+//                isDown = true;
+//                invalidate();
+//                return true;
+//            case MotionEvent.ACTION_UP:
+//                isDown = false;
+//                invalidate();
+//                return true;
+//            case MotionEvent.ACTION_MOVE:
+//                break;
+//            case MotionEvent.ACTION_CANCEL:
+//                isDown = false;
+//                invalidate();
+//                return true;
+//        }
+        return super.onTouchEvent(event);
     }
 }
