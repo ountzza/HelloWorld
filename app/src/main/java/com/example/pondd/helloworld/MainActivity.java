@@ -21,45 +21,45 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.flipboard);
 
-        Display display = getWindowManager().getDefaultDisplay();
-        Point size = new Point();
-        display.getSize(size);
-        int width = size.x;
-        int height = size.y;
-
-        Log.d("width", ""+width);
-        Log.d("height", ""+height);
-
-        final EditText editText1 = (EditText) findViewById(R.id.editText1);
-        final EditText editText2 = (EditText) findViewById(R.id.editText2);
-        final TextView txtView = (TextView) findViewById(R.id.textResult);
-        final RadioGroup rbSigned = (RadioGroup) findViewById(R.id.rgGroup);
-
-        Button calButton = (Button) findViewById(R.id.firstButton);
-        calButton.setText("Calculate");
-        calButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int result1 = Integer.valueOf("0"+editText1.getText().toString());
-                int result2 = Integer.valueOf("0"+editText2.getText().toString());
-                int checked = rbSigned.getCheckedRadioButtonId();
-
-                if(checked == R.id.rbPlus){
-                    txtView.setText((result1+result2)+"");
-                }else if (checked == R.id.rbMinus){
-                    txtView.setText((result1-result2)+"");
-                }else if (checked == R.id.rbMultiply){
-                    txtView.setText((result1*result2)+"");
-                }else if (checked==R.id.rbDivide){
-                    txtView.setText((result1/result2)+"");
-                }
-
-            }
-        });
-        CustomViewGroup customViewGroup = (CustomViewGroup)findViewById(R.id.customViewGroup1);
-        customViewGroup.setTxtName("World");
+//        Display display = getWindowManager().getDefaultDisplay();
+//        Point size = new Point();
+//        display.getSize(size);
+//        int width = size.x;
+//        int height = size.y;
+//
+//        Log.d("width", ""+width);
+//        Log.d("height", ""+height);
+//
+//        final EditText editText1 = (EditText) findViewById(R.id.editText1);
+//        final EditText editText2 = (EditText) findViewById(R.id.editText2);
+//        final TextView txtView = (TextView) findViewById(R.id.textResult);
+//        final RadioGroup rbSigned = (RadioGroup) findViewById(R.id.rgGroup);
+//
+//        Button calButton = (Button) findViewById(R.id.firstButton);
+//        calButton.setText("Calculate");
+//        calButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                int result1 = Integer.valueOf("0"+editText1.getText().toString());
+//                int result2 = Integer.valueOf("0"+editText2.getText().toString());
+//                int checked = rbSigned.getCheckedRadioButtonId();
+//
+//                if(checked == R.id.rbPlus){
+//                    txtView.setText((result1+result2)+"");
+//                }else if (checked == R.id.rbMinus){
+//                    txtView.setText((result1-result2)+"");
+//                }else if (checked == R.id.rbMultiply){
+//                    txtView.setText((result1*result2)+"");
+//                }else if (checked==R.id.rbDivide){
+//                    txtView.setText((result1/result2)+"");
+//                }
+//
+//            }
+//        });
+//        CustomViewGroup customViewGroup = (CustomViewGroup)findViewById(R.id.customViewGroup1);
+//        customViewGroup.setTxtName("World");
     }
 
 
