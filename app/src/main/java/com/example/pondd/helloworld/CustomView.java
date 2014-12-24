@@ -45,7 +45,10 @@ public class CustomView extends View {
 
             @Override
             public void onShowPress(MotionEvent e) {
-                isDown = true;
+                if (e.getAction()==MotionEvent.ACTION_DOWN)
+                    isDown = true;
+                else
+                    isDown = false;
                 invalidate();
             }
 
