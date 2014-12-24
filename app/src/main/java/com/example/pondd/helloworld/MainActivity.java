@@ -58,6 +58,8 @@ public class MainActivity extends ActionBarActivity {
 
             }
         });
+        CustomViewGroup customViewGroup = (CustomViewGroup)findViewById(R.id.customViewGroup1);
+        customViewGroup.setTxtName("World");
     }
 
 
